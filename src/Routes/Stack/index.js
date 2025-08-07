@@ -10,9 +10,10 @@ function StackNav() {
         <Navigator initialRouteName="Onboarding">
             <Screen name="Onboarding" component={OnBoarding} options={{
                 headerShown: false,
+
             }}/>
-            <Screen name="Login" component={Login} options={{headerShown: false}}/>
-            <Screen name="BottomTabs" component={BottomNav} options={{headerShown: false}}/>
+            <Screen name="Login" component={Login}  options={{headerShown: false, animation: }}/>
+            <Screen name="BottomTabs" component={BottomNav} options={{headerShown: false, animation: "slide_from_bottom"}}/>
        </Navigator>
     )
 }

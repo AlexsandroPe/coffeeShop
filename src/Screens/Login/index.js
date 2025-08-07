@@ -12,8 +12,8 @@ function Login() {
     return (
         <SafeAreaView style={{flex: 1}}>
             <ImageBackground source={require("../../../assets/6.png")} style={{flex: 1, justifyContent: "flex-end"}}>
-            <View style={{flex: 1, justifyContent: "space-between", alignItems: "center", padding: 30, flex: 2 / 3,      backgroundColor: "rgba(255, 255, 255, 0.26)", borderRadius: 30}}>
-                <Input icon={true} placeholderr="Insira seu nome"/>
+            <View style={{flex: 1, justifyContent: "space-between", alignItems: "center", padding: 30, flex: 2 / 3, backgroundColor: "rgba(255, 255, 255, 0.26)", borderTopStartRadius: 30, borderTopEndRadius: 30}}>
+                <Input icon={false} placeholderr="Insira seu nome"/>
               <Button title="Login" onPress={handleNavigation}/>  
             </View>
         </ImageBackground>
