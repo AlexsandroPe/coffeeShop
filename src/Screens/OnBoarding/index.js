@@ -1,10 +1,13 @@
 
-import { Image, ImageBackground, Text, View, StyleSheet} from "react-native"
+import { Image, ImageBackground, Text, View, StyleSheet, Dimensions} from "react-native"
 import {SafeAreaView} from "react-native-safe-area-context"
 import { useNavigation } from "@react-navigation/native";
 import Button from "../../components/Button";
 import { LinearGradient } from "expo-linear-gradient";
 
+
+const {width, height} = Dimensions.get('screen')
+console.log(width, height)
 const Styles = StyleSheet.create({
     text: {
         height: 194,
@@ -16,25 +19,28 @@ const Styles = StyleSheet.create({
         color: "white",
         fontSize: 32,
         textAlign: "center",
-        letterSpacing: 0.5,
-        lineHeight: 43,
+        letterSpacing: 0.16,
+        lineHeight: 48,
         width: 300,
         alignSelf: "center",
     },
     secondText: {
-        color: "white",
+        color: "#A2A2A2",
         fontSize: 14,
-        textAlign: "center"
+        textAlign: "center",
+        lineHeight: 21,
+        letterSpacing: 0.14,
+        width: 300,
     },
     imageBackground: { 
-        height: 552, 
-        width: "100%", 
-        resizeMode: "cover"
+        height: "70%",
+        width: width, 
+        resizeMode: "cover",
     },
     imgBackgroundView: { 
-        flex: 1, 
+        flex: 1,
         justifyContent: "flex-end",
-
+        backgroundColor: "rgba(0, 0, 0, 1)"
     }
 });
 
@@ -45,9 +51,9 @@ function OnBoarding() {
     }
 
     return (
-        <SafeAreaView style={{flex: 1, }}>
-            <ImageBackground source={require("../../../assets/imageboarding.png")} imageStyle={Styles.imageBackground } style={Styles.imgBackgroundView }>
-                <LinearGradient colors={["transparent", "rgba(0, 0, 0, 1)", "rgb(0, 0, 0)"]} style={{gap: 10, height: 320, paddingBottom: 40, alignItems: "center", justifyContent: "flex-end"}}>
+        <SafeAreaView style={{flex: 1}}>
+            <ImageBackground source={require("../../../assets/image.png")} imageStyle={Styles.imageBackground } style={Styles.imgBackgroundView }>
+                <LinearGradient colors={['rgba(5, 5, 5, 0)', '#050505']} locations={[0, 0.40]} style={{gap: 39, height: 360, paddingBottom: 40, alignItems: "center", justifyContent: "flex-end"}}>
                         <View style={Styles.text}>
                             <Text style={Styles.mainText}>Fall in Love with Coffee in Blissful Delight!</Text>
                             <Text style={Styles.secondText}>Welcome to our cozy coffee corner, where every cup is a delightful for you.</Text>
@@ -55,7 +61,6 @@ function OnBoarding() {
                         <Button title="Get Started"  onPress={handleNavigation} />
                 </LinearGradient>
             </ImageBackground>
-        
         </SafeAreaView>
     )
 }

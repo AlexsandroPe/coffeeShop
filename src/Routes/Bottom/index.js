@@ -6,7 +6,9 @@ const {Navigator, Screen}  = createBottomTabNavigator();
 function BottomNav() {
     return (
         <Navigator initialRouteName='Home'>
-            <Screen name='Home' component={Home}/>
+            <Screen name='Home' component={Home} options={{
+                headerShown: false
+            }}/>
         </Navigator> 
     )
 }
