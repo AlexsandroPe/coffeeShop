@@ -7,11 +7,13 @@ import { LinearGradient } from "expo-linear-gradient";
 import CategoriesButton from "../../components/Categories";
 import {categories, coffees} from "../../Data"
 import CardCoffe from "../../components/Card";
-
+import useLoadFonts from "../../hooks/useLoadFonts";
 function Home({ route }) {
   const { userName } = route.params;
   const [activeCategory, setActiveCategory] = useState(0);
-  
+  const fontsLoaded = useLoadFonts()
+
+  if(!fontsLoaded) return null;
   const handleCategoryPress = (index) => {
     setActiveCategory(index);
   };
@@ -32,11 +34,11 @@ function Home({ route }) {
         }}    
       >
         <View>
-          <Text style={{ color: "rgba(112, 87, 65, 1)", fontSize: 30 }}>
+          <Text style={{ color: "rgba(112, 87, 65, 1)", fontSize: 30, fontFamily: "Sora_600SemiBold " }}>
             Bem vindo, <Text style={{ color: "#d6d6d6ff", fontSize: 30 }}>{userName}</Text>
           </Text>
         </View>
-        <Input icon={true} placeholderr={"Search Coffee"} />
+        <Input icon={true} font={"Sora_400Regular"} placeholderr={"Search Coffee"} />
       </LinearGradient>
     
 	<View style={{flex: 1}}>
@@ -61,7 +63,7 @@ function Home({ route }) {
 				key={"Coffees-grid"}
 					data={coffees}
 					renderItem={({item, index}) => (
-						<CardCoffe category={item.category} key={item.id} title={item.name} price={item.price} url={item.url}/>
+						<CardCoffe description={item.description} category={item.category} key={item.id} title={item.name} price={item.price} url={item.url}/>
 					)}
 					numColumns={2}
 					showsVerticalScrollIndicator={false}

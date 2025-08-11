@@ -1,13 +1,23 @@
-import { PlusSquare, Plus, PlusCircle } from "lucide-react-native"
-import { View, Text, ImageBackground, StyleSheet} from "react-native"
-
+import { PlusSquare, Plus, PlusCircle, ShoppingBag } from "lucide-react-native"
+import { View, Text, ImageBackground, StyleSheet, Pressable} from "react-native"
+import { useNavigation } from "@react-navigation/native"
+import { useState } from "react";
 
 function CardCoffe({title, price, description, category, url},) {
+    const [isAdded, setIsAdded] = useState();
+    const navigation = useNavigation();
 
+    const handlePress = () => {
+        navigation.navigate("Details", {
+            title, 
+            description, 
+            price,
+            url
+        });
+    }
     return (
-        <View style={styles.card}>
+        <Pressable onPress={handlePress} style={styles.card}>
             <ImageBackground style={{height: 128}} imageStyle={{borderRadius: 12}} source={url}>
-
             </ImageBackground>
             <View style={styles.detail}>
                 <View style={styles.text}>
@@ -16,10 +26,12 @@ function CardCoffe({title, price, description, category, url},) {
                 </View>
                 <View style={styles.buttonAddItem}>
                     <Text style={styles.price}>{price}</Text>
-                    <Plus  size={32} style={styles.icon}  color="white"/>
+                    
+                    {isAdded ? <ShoppingBag onPress={() => setIsAdded(!true)}  size={32}   color="black"/> :  <Plus onPress={() => setIsAdded(true)}  size={32} style={styles.icon}  color="white"/> }
+                   
                 </View>
             </View>
-        </View>
+        </Pressable>
     )
 }
 const styles = StyleSheet.create({

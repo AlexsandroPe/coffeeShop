@@ -6,7 +6,7 @@ import Button from "../../components/Button";
 import { LinearGradient } from "expo-linear-gradient";
 import { StatusBar } from "expo-status-bar";
 
-
+import useLoadFonts from "../../hooks/useLoadFonts";
 const {width, height} = Dimensions.get('screen')
 console.log(width, height)
 const Styles = StyleSheet.create({
@@ -24,6 +24,7 @@ const Styles = StyleSheet.create({
         lineHeight: 48,
         width: 300,
         alignSelf: "center",
+        fontFamily: "Sora_600SemiBold"
     },
     secondText: {
         color: "#A2A2A2",
@@ -31,7 +32,8 @@ const Styles = StyleSheet.create({
         textAlign: "center",
         lineHeight: 21,
         letterSpacing: 0.14,
-        width: 300,
+        width: 327,
+        fontFamily: "Sora_400Regular"
     },
     imageBackground: { 
         // flex: 1,
@@ -48,6 +50,10 @@ const Styles = StyleSheet.create({
 
 function OnBoarding() {
     const navigation = useNavigation();
+
+      const fontsLoaded = useLoadFonts()
+
+  if(!fontsLoaded) return null;
     const handleNavigation = () => {
         navigation.navigate("Login")
     }
@@ -60,7 +66,7 @@ function OnBoarding() {
                             <Text style={Styles.mainText}>Fall in Love with Coffee in Blissful Delight!</Text>
                             <Text style={Styles.secondText}>Welcome to our cozy coffee corner, where every cup is a delightful for you.</Text>
                         </View>
-                        <Button title="Get Started"  onPress={handleNavigation} />
+                        <Button title="Get Started" width={327} font="Sora_600SemiBold"  onPress={handleNavigation} />
                 </LinearGradient>
             </ImageBackground>
         </SafeAreaView>
