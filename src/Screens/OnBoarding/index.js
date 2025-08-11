@@ -55,7 +55,7 @@ function OnBoarding() {
     return (
         <SafeAreaView style={{flex: 1}} >
             <ImageBackground source={require("../../../assets/image.png")} imageStyle={Styles.imageBackground } style={Styles.imgBackgroundView }>
-                <LinearGradient colors={['rgba(5, 5, 5, 0)', '#050505']} locations={[0, 0.40]} style={{gap: 39, height: 360, paddingBottom: 40, alignItems: "center", justifyContent: "flex-end"}}>
+                <LinearGradient  colors={['rgba(5, 5, 5, 0)', '#050505']} locations={[0, 0.40]} style={{gap: 39, height: 360, paddingBottom: 40, alignItems: "center", justifyContent: "flex-end"}}>
                         <View style={Styles.text}>
                             <Text style={Styles.mainText}>Fall in Love with Coffee in Blissful Delight!</Text>
                             <Text style={Styles.secondText}>Welcome to our cozy coffee corner, where every cup is a delightful for you.</Text>
