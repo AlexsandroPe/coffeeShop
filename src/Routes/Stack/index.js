@@ -1,7 +1,6 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import OnBoarding from "../../Screens/OnBoarding";
 import Login from "../../Screens/Login";
-import Home from "../../Screens/Home";
 import BottomNav from "../Bottom";
 
 const {Navigator, Screen} = createNativeStackNavigator();

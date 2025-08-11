@@ -1,6 +1,14 @@
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
-function TopNav() {
-    return (
-        <></>
-    )
+const Tab = createMaterialTopTabNavigator();
+
+function TopNavigation() {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Screen name="Profile" component={ProfileScreen} />
+    </Tab.Navigator>
+  );
 }
+
+export default TopNavigation;

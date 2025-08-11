@@ -4,6 +4,7 @@ import {SafeAreaView} from "react-native-safe-area-context"
 import { useNavigation } from "@react-navigation/native";
 import Button from "../../components/Button";
 import { LinearGradient } from "expo-linear-gradient";
+import { StatusBar } from "expo-status-bar";
 
 
 const {width, height} = Dimensions.get('screen')
@@ -33,6 +34,7 @@ const Styles = StyleSheet.create({
         width: 300,
     },
     imageBackground: { 
+        // flex: 1,
         height: "70%",
         width: width, 
         resizeMode: "cover",
@@ -49,9 +51,9 @@ function OnBoarding() {
     const handleNavigation = () => {
         navigation.navigate("Login")
     }
-
+    
     return (
-        <SafeAreaView style={{flex: 1}}>
+        <SafeAreaView style={{flex: 1}} >
             <ImageBackground source={require("../../../assets/image.png")} imageStyle={Styles.imageBackground } style={Styles.imgBackgroundView }>
                 <LinearGradient colors={['rgba(5, 5, 5, 0)', '#050505']} locations={[0, 0.40]} style={{gap: 39, height: 360, paddingBottom: 40, alignItems: "center", justifyContent: "flex-end"}}>
                         <View style={Styles.text}>
@@ -62,6 +64,7 @@ function OnBoarding() {
                 </LinearGradient>
             </ImageBackground>
         </SafeAreaView>
+        
     )
 }
 
