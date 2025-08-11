@@ -3,8 +3,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { View, Pressable } from 'react-native';
 import Home from '../../Screens/Home';
 import {HomeIcon, ShoppingBag} from "lucide-react-native"
-import Delivery from '../../Screens/Delivery';
-
+import Cart from "../../Screens/Cart"
 const {Navigator, Screen}  = createBottomTabNavigator();
 function BottomNav() {
     return (
@@ -52,7 +51,7 @@ function BottomNav() {
                 //     }
                 // }/>
             }}/>
-            <Screen name='Carrinho' component={Delivery} options={{
+            <Screen name='Carrinho' component={Cart} options={{
                 headerShown: false,
                 tabBarLabel: "",
                 tabBarIcon: ({focused}) => (
