@@ -23,7 +23,6 @@ const fontsLoaded = useLoadFonts()
             <Screen name="BottomTabs" component={BottomNav} options={{headerShown: false, animation: "slide_from_bottom"}}/>
             <Screen name="Details" component={Details} options={{
                 headerShown: true,
-    
                  animation: "slide_from_bottom",
                 headerTitleAlign: "center",
                 headerRight: () => (

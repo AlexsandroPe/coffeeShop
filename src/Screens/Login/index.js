@@ -6,7 +6,7 @@ import { useNavigation } from "@react-navigation/native";
 import Input from "../../components/Input"
 import useLoadFonts from "../../hooks/useLoadFonts";
 function Login() {
-    const [userName, setUserName] = useState("Amigo");
+    const [userName, setUserName] = useState("Friend");
     const navigation = useNavigation();
     
   const fontsLoaded = useLoadFonts()

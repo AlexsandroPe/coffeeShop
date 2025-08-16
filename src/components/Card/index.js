@@ -1,7 +1,9 @@
-import { PlusSquare, Plus, PlusCircle, ShoppingBag } from "lucide-react-native"
+import {Plus, ShoppingBag } from "lucide-react-native"
 import { View, Text, ImageBackground, StyleSheet, Pressable} from "react-native"
 import { useNavigation } from "@react-navigation/native"
 import { useState } from "react";
+
+import Animated from "react-native-reanimated";
 
 function CardCoffe({title, price, description, category, url},) {
     const [isAdded, setIsAdded] = useState();
@@ -16,17 +18,16 @@ function CardCoffe({title, price, description, category, url},) {
         });
     }
     return (
-        <Pressable onPress={handlePress} style={styles.card}>
+        <Pressable  onPress={handlePress} style={styles.card}>
             <ImageBackground style={{height: 128}} imageStyle={{borderRadius: 12}} source={url}>
             </ImageBackground>
-            <View style={styles.detail}>
+            <View  style={styles.detail}>
                 <View style={styles.text}>
                     <Text style={{fontFamily: "Sora_600SemiBold", fontSize: 16}}>{title}</Text>
                     <Text style={{color: "#a2a2a2"}}>{category}</Text>
                 </View>
                 <View style={styles.buttonAddItem}>
                     <Text style={styles.price}>{price}</Text>
-                    
                     {isAdded ? <ShoppingBag onPress={() => setIsAdded(!true)}  size={32}   color="black"/> :  <Plus onPress={() => setIsAdded(true)}  size={32} style={styles.icon}  color="white"/> }
                    
                 </View>
@@ -59,3 +60,20 @@ const styles = StyleSheet.create({
 
 })
 export default CardCoffe
+
+{/* <Pressable onPress={handlePress} style={styles.card}>
+            <ImageBackground style={{height: 128}} imageStyle={{borderRadius: 12}} source={url}>
+            </ImageBackground>
+            <View style={styles.detail}>
+                <View style={styles.text}>
+                    <Text style={{fontFamily: "Sora_600SemiBold", fontSize: 16}}>{title}</Text>
+                    <Text style={{color: "#a2a2a2"}}>{category}</Text>
+                </View>
+                <View style={styles.buttonAddItem}>
+                    <Text style={styles.price}>{price}</Text>
+                    
+                    {isAdded ? <ShoppingBag onPress={() => setIsAdded(!true)}  size={32}   color="black"/> :  <Plus onPress={() => setIsAdded(true)}  size={32} style={styles.icon}  color="white"/> }
+                   
+                </View>
+            </View>
+        </Pressable> */}
